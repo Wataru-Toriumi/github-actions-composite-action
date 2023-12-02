@@ -13,3 +13,5 @@ runs:
   steps:
     - run: echo "Hello world, ${{name}}!"
       shell: bash
+      env:
+        name: ${{inputs.name}}

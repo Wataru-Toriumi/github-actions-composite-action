@@ -10,4 +10,4 @@ jobs:
         id: say-hello
         with:
           name: john
-      - run: "echo ${{ steps.say-hello.outputs.target }}"
+      - run: echo "${{ steps.say-hello.outputs.target }}"
