@@ -1,0 +1,13 @@
+name: hello world example
+on: push
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # こんな感じで指定する
+      - uses: ./.github/actions/hello-world/
+        id: say-hello
+        with:
+          name: john
+      - run: "echo ${{ steps.say-hello.outputs.target }}"
