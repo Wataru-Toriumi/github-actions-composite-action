@@ -1,0 +1,22 @@
+name: workflow_run
+on:
+  workflow_run:
+    workflows:
+      - "Hello"
+    types: [completed]
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo 'success'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'failure'
+  finally:
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - run: echo 'workflow_run is finished'
