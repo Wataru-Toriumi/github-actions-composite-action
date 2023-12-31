@@ -2,7 +2,7 @@ name: workflow_run
 on:
   workflow_run:
     workflows:
-      - "Hello"
+      - "hello world example"
     types: [completed]
 jobs:
   on-success:
